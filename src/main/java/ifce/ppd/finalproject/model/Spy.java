@@ -1,4 +1,4 @@
-package ifce.ppd.finalproject.spaces.model;
+package ifce.ppd.finalproject.model;
 
 import net.jini.core.entry.Entry;
 

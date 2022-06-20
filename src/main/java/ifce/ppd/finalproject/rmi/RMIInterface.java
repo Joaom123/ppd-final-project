@@ -1,5 +1,7 @@
 package ifce.ppd.finalproject.rmi;
 
+import ifce.ppd.finalproject.model.Message;
+
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
@@ -14,5 +16,5 @@ public interface RMIInterface extends Remote {
      * @param messageContent The message's content.
      * @throws RemoteException Exception
      */
-    void sendMessage(String messageContent) throws RemoteException;
+    void sendMessage(Message message) throws RemoteException;
 }

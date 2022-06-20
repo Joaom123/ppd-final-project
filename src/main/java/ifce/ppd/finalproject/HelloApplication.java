@@ -1,21 +1,27 @@
 package ifce.ppd.finalproject;
 
+import ifce.ppd.finalproject.controller.ChatController;
+import ifce.ppd.finalproject.model.User;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.UUID;
 
 public class HelloApplication extends Application {
     public static void main(String[] args) {
+        System.setProperty("java.security.policy","/home/joaomarcus/Projetos/final-project/src/main/java/ifce/ppd/finalproject/spaces/all.policy");
+        System.setSecurityManager(new SecurityManager());
         launch();
     }
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("chat-view.fxml"));
+        fxmlLoader.setController(new ChatController(new User(UUID.randomUUID(), "João Marcus")));
+        Scene scene = new Scene(fxmlLoader.load(), 900, 900);
         stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();
