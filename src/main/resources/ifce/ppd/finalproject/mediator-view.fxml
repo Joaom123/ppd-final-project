@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="ifce.ppd.finalproject.MediatorView"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="900.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ifce.ppd.finalproject.controller.MediatorController">
+   <children>
+      <Text layoutX="287.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Programa Mediador">
+         <font>
+            <Font size="33.0" />
+         </font>
+      </Text>
+      <TextArea fx:id="chat" layoutX="74.0" layoutY="87.0" prefHeight="200.0" prefWidth="752.0" />
+   </children>
 </AnchorPane>
