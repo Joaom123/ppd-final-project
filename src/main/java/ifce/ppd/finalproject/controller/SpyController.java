@@ -4,10 +4,12 @@ import ifce.ppd.finalproject.rmi.RMIInterface;
 import ifce.ppd.finalproject.model.Message;
 import ifce.ppd.finalproject.spaces.server.Lookup;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import net.jini.core.entry.UnusableEntryException;
 import net.jini.core.transaction.TransactionException;
 import net.jini.space.JavaSpace;
@@ -25,6 +27,9 @@ public class SpyController implements Initializable {
 
     @FXML
     public ListView wordList;
+
+    @FXML
+    public TextField newDangerousWordInput;
 
     private JavaSpace javaSpaces = null;
 
@@ -99,5 +104,13 @@ public class SpyController implements Initializable {
                 });
             }
         }, 0, 800);
+    }
+
+    @FXML
+    public void addDangerousWord(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void removeDangerousWord(ActionEvent actionEvent) {
     }
 }
