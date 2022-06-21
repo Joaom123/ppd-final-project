@@ -19,9 +19,11 @@
       <Text layoutX="116.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mensagens Perigosas" />
       <Text layoutX="116.0" layoutY="367.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Palavras Perigosas" />
       <ListView fx:id="wordList" layoutX="116.0" layoutY="376.0" prefHeight="274.0" prefWidth="331.0" />
-      <Button layoutX="609.0" layoutY="501.0" mnemonicParsing="false" onAction="#addDangerousWord" text="Adicionar" />
-      <Button layoutX="251.0" layoutY="665.0" mnemonicParsing="false" onAction="#removeDangerousWord" text="Excluir" />
+      <Button layoutX="609.0" layoutY="510.0" mnemonicParsing="false" onAction="#addDangerousWord" text="Adicionar" />
+      <Button layoutX="251.0" layoutY="674.0" mnemonicParsing="false" onAction="#removeDangerousWord" text="Excluir" />
       <TextField fx:id="newDangerousWordInput" layoutX="531.0" layoutY="470.0" prefHeight="24.0" prefWidth="236.0" />
       <Text layoutX="531.0" layoutY="463.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adicone uma palavra perigosa:" />
+      <Text fx:id="addDangerousWordErrorText" fill="#d02f2f" layoutX="531.0" layoutY="507.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text fx:id="removeDangerousWordErrorText" fill="#d02f2f" layoutX="263.0" layoutY="667.0" strokeType="OUTSIDE" strokeWidth="0.0" />
    </children>
 </AnchorPane>
