@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 import net.jini.core.entry.UnusableEntryException;
 import net.jini.core.transaction.TransactionException;
 import net.jini.space.JavaSpace;
@@ -23,6 +24,12 @@ public class ChatController implements Initializable {
 
     @FXML
     public TextField messageInput;
+
+    @FXML
+    public Text userNameText;
+
+    @FXML
+    public Text userIdText;
 
     private JavaSpace javaSpaces = null;
 
@@ -66,6 +73,9 @@ public class ChatController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        userIdText.setText(user.id.toString());
+        userNameText.setText(user.name);
+
         Timer timer = new Timer();
 
         timer.schedule( new TimerTask()
@@ -74,9 +84,11 @@ public class ChatController implements Initializable {
                 Platform.runLater(() -> {
                     try {
                         Message message = (Message) javaSpaces.read(new Message(), null, 200);
-                        System.out.println(message);
+
                         if (message == null || messageSet.contains(message)) return;
+
                         messageSet.add(message);
+
                         if (!message.author.equals(user))
                             addMessageToChat(message.author.name, message.content);
                     } catch (UnusableEntryException | TransactionException | InterruptedException | RemoteException e) {

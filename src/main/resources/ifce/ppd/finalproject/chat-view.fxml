@@ -19,5 +19,7 @@
       </Text>
       <Text layoutX="299.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome do Usuario:" />
       <Text layoutX="299.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID do Usuario:" />
+      <Text fx:id="userNameText" layoutX="420.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome do Usuario:" />
+      <Text fx:id="userIdText" layoutX="395.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID do Usuario:" />
    </children>
 </AnchorPane>

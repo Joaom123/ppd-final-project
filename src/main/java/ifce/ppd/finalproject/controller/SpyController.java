@@ -70,13 +70,10 @@ public class SpyController implements Initializable {
             System.out.println("O serviço RMI não foi encontrado. Encerrando...");
             System.exit(-1);
         }
-
-        System.out.println(registry);
-        System.out.println(rmiInterfaceStub);
     }
 
     private boolean messageIsDangerous(Message message) {
-        String[] words = message.content.split("\\W+");
+        String[] words = message.content.toLowerCase().split("\\W+");
 
         for (String word : words) {
             if (dangerousWords.contains(word))
@@ -102,15 +99,10 @@ public class SpyController implements Initializable {
                             addMessageToChat(message.author.name, message.content);
 
                             // Send message ro RMI
-                            registry = LocateRegistry.getRegistry(null, 2002);
-                            rmiInterfaceStub = (RMIInterface) registry.lookup("RMIInterface");;
-                            System.out.println(rmiInterfaceStub);
                             rmiInterfaceStub.sendMessage(message);
                         }
                     } catch (UnusableEntryException | TransactionException | InterruptedException | RemoteException e) {
                         e.printStackTrace();
-                        throw new RuntimeException(e);
-                    } catch (NotBoundException e) {
                         throw new RuntimeException(e);
                     }
                 });
@@ -135,15 +127,13 @@ public class SpyController implements Initializable {
         addDangerousWordErrorText.setText("");
 
         // Add dangerous word to list
-        dangerousWords.add(newWord);
-        wordList.getItems().add(newWord);
+        dangerousWords.add(newWord.toLowerCase());
+        wordList.getItems().add(newWord.toLowerCase());
     }
 
     @FXML
     public void removeDangerousWord(ActionEvent actionEvent) {
         String selectedWord = wordList.getSelectionModel().getSelectedItem();
-
-        System.out.println(selectedWord);
 
         if(selectedWord == null) {
             removeDangerousWordErrorText.setText("Não há palavra selecionada!");
@@ -151,8 +141,8 @@ public class SpyController implements Initializable {
         }
 
         removeDangerousWordErrorText.setText("");
-        dangerousWords.remove(selectedWord);
-        wordList.getItems().remove(selectedWord);
+        dangerousWords.remove(selectedWord.toLowerCase());
+        wordList.getItems().remove(selectedWord.toLowerCase());
     }
 
     private void addMessageToChat(String author, String message) {
