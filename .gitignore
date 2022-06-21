@@ -5,6 +5,8 @@ target/
 /lib
 /lib-dl
 /lib-ext
+out/
+final-project.jar
 
 ### IntelliJ IDEA ###
 .idea/modules.xml
